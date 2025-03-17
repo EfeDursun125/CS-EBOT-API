@@ -6,6 +6,8 @@
 #else
 #include <dlfcn.h>
 #define GetProcAddress dlsym
+__asm__(".symver dlsym,dlsym@GLIBC_2.0");
+__asm__(".symver dlopen,dlopen@GLIBC_2.0");
 #endif
 
 typedef bool(*_EBOT) (void);
@@ -1200,7 +1202,7 @@ AMX_NATIVE_INFO ebot_natives[] =
 	{ "ebot_get_current_process", amxx_ebot_get_current_process }, 
 	{ "ebot_get_remembered_process", amxx_ebot_get_remembered_process }, 
 	{ "ebot_get_current_process_time", amxx_ebot_get_current_process_time }, 
-	{ "ebot_get_remembered_process_time", amxx_ebot_get_remembered_process_time }, 
+	{ "ebot_get_remembered_process_tym", amxx_ebot_get_remembered_process_time }, 
 	{ "ebot_set_current_process", amxx_ebot_set_current_process }, 
 	{ "ebot_force_current_process", amxx_ebot_force_current_process }, 
 	{ "ebot_finish_current_process", amxx_ebot_finish_current_process }, 
@@ -1238,7 +1240,7 @@ AMX_NATIVE_INFO ebot_natives[] =
 	{ "ebot_get_waypoint_radius", amxx_ebot_get_waypoint_radius }, 
 	{ "ebot_get_waypoint_mesh", amxx_ebot_get_waypoint_mesh }, 
 	{ "ebot_get_waypoint_connections", amxx_ebot_get_waypoint_connections }, 
-	{ "ebot_get_waypoint_connection_flags", amxx_ebot_get_waypoint_connection_flags }, 
+	{ "ebot_get_waypoint_con_flags", amxx_ebot_get_waypoint_connection_flags }, 
 	{ "ebot_get_waypoint_gravity", amxx_ebot_get_waypoint_gravity }, 
 	{ "ebot_move_to", amxx_ebot_move_to }, 
 	{ "ebot_move_out", amxx_ebot_move_out }, 
@@ -1259,13 +1261,13 @@ AMX_NATIVE_INFO ebot_natives[] =
 	{ "ebot_is_node_reachable", amxx_ebot_is_node_reachable }, 
 	{ "ebot_find_nearest_waypoint", amxx_ebot_find_nearest_waypoint }, 
 	{ "ebot_find_farest_waypoint", amxx_ebot_find_farest_waypoint }, 
-	{ "ebot_find_nearest_waypoint_to_entity", amxx_ebot_find_nearest_waypoint_to_entity }, 
+	{ "ebot_find_nearest_waypoint_ent", amxx_ebot_find_nearest_waypoint_to_entity }, 
 	{ "ebot_get_waypoint_distance", amxx_ebot_get_waypoint_distance }, 
 	{ "ebot_is_valid_waypoint", amxx_ebot_is_valid_waypoint }, 
 	{ "ebot_is_matrix_ready", amxx_ebot_is_matrix_ready }, 
 	{ "ebot_is_camping", amxx_ebot_is_camping }, 
 	{ "ebot_register_enemy_entity", amxx_ebot_register_enemy_entity }, 
 	{ "ebot_unregister_enemy_entity", amxx_ebot_unregister_enemy_entity }, 
-	{ "ebot_clear_all_registered_enemy_entities", amxx_ebot_clear_all_registered_enemy_entities }, 
+	{ "ebot_clear_entity_list", amxx_ebot_clear_all_registered_enemy_entities }, 
 	{ nullptr, nullptr },
 };

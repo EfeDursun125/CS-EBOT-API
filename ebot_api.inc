@@ -72,9 +72,6 @@ native ebot_get_entity(index);
 // return ebot's current friend, also returns last friend
 native ebot_get_friend(index);
 
-// return ebot's current friend, also returns last friend
-native ebot_get_friend(index);
-
 // sets the ebot's current/last enemy
 native ebot_set_enemy(index, index2);
 
@@ -106,7 +103,7 @@ native ebot_get_remembered_process(index);
 native Float:ebot_get_current_process_time(index);
 
 // returns remaining time to forget remembered process
-native Float:ebot_get_remembered_process_time(index);
+native Float:ebot_get_remembered_process_tym(index);
 
 // sets the current process if requirements are satisfied
 native ebot_set_current_process(index, process, remember, Float:time);
@@ -115,7 +112,7 @@ native ebot_set_current_process(index, process, remember, Float:time);
 native ebot_force_current_process(index, process);
 
 // finishes current process no matter what
-native amxx_ebot_finish_current_process(index);
+native ebot_finish_current_process(index);
 
 // overrides current process, useful for custom scenario and bot tasks
 // custom id is for check if bot is already overriden by another plugin or not
@@ -224,7 +221,7 @@ native ebot_get_waypoint_mesh(waypointIndex, meshID);
 native ebot_get_waypoint_connections(waypointIndex, connectionIndex, connectionNumber);
 
 // returns connection flags of given waypoint index
-native ebot_get_waypoint_connections(waypointIndex, connectionFlags, connectionNumber);
+native ebot_get_waypoint_con_flags(waypointIndex, connectionFlags, connectionNumber);
 
 // returns gravity of given waypoint index
 native ebot_get_waypoint_gravity(waypointIndex, gravity);
@@ -290,7 +287,7 @@ native ebot_find_nearest_waypoint(Float:origin[3], Float:maxDistance);
 native ebot_find_farest_waypoint(Float:origin[3], Float:maxDistance);
 
 // returns nearest reachable waypoint index to given entity index and given vector, origin also can be entity origin
-native ebot_find_nearest_waypoint(Float:origin[3], Float:maxDistance, entityIndex);
+native ebot_find_nearest_waypoint_ent(Float:origin[3], Float:maxDistance, entityIndex);
 
 // returns path distance between two waypoints
 native ebot_get_waypoint_distance(srcIndex, destIndex);
@@ -311,4 +308,4 @@ native ebot_register_enemy_entity(entityIndex);
 native ebot_unregister_enemy_entity(entityIndex);
 
 // unregisters every entity
-native ebot_clear_all_registered_enemy_entities();
+native ebot_clear_entity_list();
